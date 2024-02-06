@@ -1,0 +1,72 @@
+{% load static %}
+<style>
+    .column {
+    float: left;
+    width: 10%;
+    height: 30px;
+    padding: 5px;
+    padding-left: 10px;
+    }
+    
+    .column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+    }
+    
+    .column img:hover {
+    opacity: 1;
+    }
+    
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    
+    #imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+    }
+    
+    .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+<script>
+    function myFunctionImage(imgs) {
+      var expandImg = document.getElementById("expandedImg");
+      var imgText = document.getElementById("imgtext");
+      var main_gallery = document.getElementById("main_gallery");
+      expandImg.src = imgs.src;
+      imgText.innerHTML = imgs.alt;
+      expandImg.parentElement.style.display = "block";
+      main_gallery.href = imgs.src;
+    }
+
+    $(document).ready(function () {
+      // Initialize FancyBox for the gallery
+      $('[data-fancybox="gallery"]').fancybox({
+          buttons: [
+              "zoom",
+              "slideShow",
+              "thumbs",
+              "close"
+          ],
+      });
+  });
+    </script>
+
